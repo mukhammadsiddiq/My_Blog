@@ -3,7 +3,7 @@
     {% block content %}
     {% for post in object_list %}
         <div class="post-entry">
-            <h1><a href="">{{post.title}}</a></h1>
+            <h1><a href="{% url 'detail_view' post.pk %}">{{post.title}}</a></h1>
             <p>{{post.body | slice:":100"}}</p>
         </div>
     {% endfor %}
