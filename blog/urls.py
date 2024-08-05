@@ -1,10 +1,18 @@
 from django.urls import path
-from .views import HomeView, DetailView, CreateViewPage
+from .views import (
+    BlogListView,
+    BlogDetailView,
+    AboutPageView,
+    BlogCreateView,
+    BlogUpdateView,
+    BlogDeleteView,
+)
 
 urlpatterns = [
-    path('/post/new/', CreateViewPage.as_view(), name='create_view'),
-    path('', HomeView.as_view(), name='home'),
-    path('/post/<int:pk>/', DetailView.as_view(), name='detail_view')
-    ## the reason for writing /post/<int:pk>/, always when we create a post, python will create
-    ## list number for the post
+    path('post/<int:pk>/delete/', BlogDeleteView.as_view(), name='post_delete'),
+    path('post/<int:pk>/edit/', BlogUpdateView.as_view(), name='post_edit'),
+    path('post/new/', BlogCreateView.as_view(), name="post_new"),
+    path('post/<int:pk>/', BlogDetailView.as_view(), name='post_detail'),
+    path('', BlogListView.as_view(), name='home'),
+    path('about/', AboutPageView.as_view(), name='about'),
 ]
