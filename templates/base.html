@@ -9,13 +9,15 @@
 <body>
     <header>
         <h1>
-             <a href="{ % urls 'home' % }">Mukhammad Ibrokhimov</a>
+             <a href="{%url 'home' %}">Mukhammad Ibrokhimov</a>
         </h1>
     </header>
     <div>
         {% block content %}
         {% endblock content %}
     </div>
-
+    <foote>
+        <h1><a href="{%url 'create_view' %}">Adding new post</a></h1>
+    </foote>
 </body>
 </html>
